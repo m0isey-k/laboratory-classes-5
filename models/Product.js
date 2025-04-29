@@ -1,17 +1,18 @@
 class Product {
-  constructor(name, description) {
+  constructor(name, description, price) {
     this.name = name;
     this.description = description;
+    this.price = price;
   }
 
   static #products = [];
 
   static getAll() {
-    return this.#products;
+    return this.#products
   }
 
   static add(product) {
-    this.#products.push(product);
+    this.#products.push(product)
   }
 
   static findByName(name) {

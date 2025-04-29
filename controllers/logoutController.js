@@ -1,5 +1,6 @@
 const { LOGOUT_LINKS } = require("../constants/navigation");
-const logger = require("../utils/logger");
+const logger = require("../utils/logger")
+const Cart = require("../models/Cart");
 
 exports.getLogoutView = (request, response) => {
   response.render("logout.ejs", {
@@ -7,6 +8,7 @@ exports.getLogoutView = (request, response) => {
     path: "/logout",
     activeLinkPath: "/logout",
     menuLinks: LOGOUT_LINKS,
+    cartCount: Cart.getProductsQuantity(),
   });
 };
 

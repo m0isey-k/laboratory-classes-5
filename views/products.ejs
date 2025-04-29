@@ -9,15 +9,10 @@
       activeLinkPath }); %>
       <h1 class="heading">Products</h1>
       <% if (products?.length > 0) { %>
-      <ul>
-        <% products.forEach(product => { %>
-        <li>
-          Name: <%= product.name %>, Description: <%= product.description %>
-          <a href="/products/<%= product.name %>">Details</a>
-          <button onclick="deleteProduct('<%= product.name %>')">Delete</button>
-        </li>
-        <% }); %>
-      </ul>
+      <div class="products-container">
+        <% products.forEach(product => { %> <%- include("partials/card", {
+        product: product }) %> <% }); %>
+      </div>
       <% } else { %>
       <br />
       <div>No products available.</div>

@@ -1,4 +1,5 @@
 const { MENU_LINKS } = require("../constants/navigation");
+const Cart = require("../models/Cart");
 
 exports.getHomeView = (request, response) => {
   response.render("home.ejs", {
@@ -6,5 +7,6 @@ exports.getHomeView = (request, response) => {
     path: "/",
     activeLinkPath: "/",
     menuLinks: MENU_LINKS,
+    cartCount: Cart.getProductsQuantity(),
   });
 };
